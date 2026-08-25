@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgres:16
+    container_name: dreamvacation-db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dream-network
+    ports:
+      - "5432:5432"
+
+  backend:
+    image: blessedinho/dream-vacations-backend:latest
+    container_name: dreamvacation-backend
+    env_file:
+      - .env
+    depends_on:
+      - db
+    ports:
+      - "3001:3001"
+    networks:
+      - dream-network
+
+  frontend:
+    image: blessedinho/dream-vacations-frontend:latest
+    container_name: dreamvacation-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    networks:
+      - dream-network
+
+networks:
+  dream-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
