@@ -1,2 +1,8 @@
 .env
-.env
+node_modules/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform/
+terraform/*.pem
+backups/
+logs/
