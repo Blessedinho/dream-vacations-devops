@@ -1,5 +1,8 @@
 # Dream Vacation Destinations
 
+![CI](https://github.com/Blessedinho/dream-vacations-devops/actions/workflows/ci.yml/badge.svg)
+![CD](https://github.com/Blessedinho/dream-vacations-devops/actions/workflows/cd.yml/badge.svg)
+
 This application allows users to create a list of countries they'd like to visit, providing basic information about each country. The project is structured to mimic a real-life production environment, employing best practices in software development, deployment, and continuous integration/continuous delivery (CI/CD).
 
 ## Setup
