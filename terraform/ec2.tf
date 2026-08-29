@@ -97,4 +97,7 @@ resource "aws_instance" "app" {
   tags = {
     Name = "${var.project_name}-server"
   }
+  lifecycle {
+    ignore_changes = [ami]
+  }
 }
